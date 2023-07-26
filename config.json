@@ -13,7 +13,7 @@
       "model_type": "nllb",
       "checkpoint_id": "facebook/nllb-200-distilled-1.3B",
       "multilingual": true,
-      "load": false,
+      "load": true,
       "sentence_split": "nltk",
       "supported_pairs": [
         "en-fr",
