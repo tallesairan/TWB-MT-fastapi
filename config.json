@@ -49,7 +49,7 @@
       "model_type": "m2m100",
       "checkpoint_id": "facebook/m2m100_1.2B",
       "multilingual": true,
-      "load": true,
+      "load": false,
       "sentence_split": "nltk",
       "supported_pairs": [
         "en-es",
