@@ -3,295 +3,63 @@
     "en": "English",
     "fr": "French",
     "de": "German",
-    "ha": "Hausa",
-    "apc":"Levantine Arabic",
-    "sw_cd":"Congolese Swahili",
-    "ti":"Tigrinya",
-    "uk":"Ukranian",
-    "kr": "Kanuri",
-    "ff": "Fulfulde",
-    "tr": "Turkish"
+    "pt": "pt",
+    "tr": "Turkish",
+    "es": "es",
+    "it": "iT"
   },
   "models": [
     {
       "model_type": "nllb",
-      "checkpoint_id": "nllb-200-distilled-600M",
+      "checkpoint_id": "facebook/nllb-200-distilled-600M",
       "multilingual": true,
-      "alt": "nllb",
-      "load": false,
+      "load": true,
       "sentence_split": "nltk",
-      "supported_pairs": ["en-kr", "en-fr", "en-ff", "en-ha"],
+      "supported_pairs": [
+        "en-fr",
+        "en-tr",
+        "en-de",
+        "en-es",
+        "en-pt",
+        "en-it",
+
+        "pt-de",
+        "pt-it",
+        "pt-en",
+        "pt-es",
+        "pt-fr",
+        "es-en",
+        "es-pt",
+        "fr-en"
+      ],
       "pipeline": {
-          "translate": true
+        "translate": true
       },
-      "lang_code_map": {"en": "eng_Latn", "tr": "tur_Latn", "fr": "fra_Latn",
-           "kr": "knc_Latn", "ha": "hau_Latn", "ff": "fuv_Latn","rw": "kin_Latn"}
+      "lang_code_map": {
+        "en": "eng_Latn",
+        "fr": "fra_Latn",
+        "tr": "tur_Latn",
+        "es": "spa_Latn",
+        "de": "deu_Latn",
+        "pt": "por_Latn",
+        "it": "ita_Latn"
+      }
     },
     {
       "model_type": "m2m100",
-      "checkpoint_id": "m2m100_418M",
+      "checkpoint_id": "facebook/m2m100_1.2B",
       "multilingual": true,
-      "alt":"m2m",
       "load": false,
       "sentence_split": "nltk",
-      "supported_pairs": ["en-tr"],
-      "pipeline": {
-          "translate": true
-      }
-    },
-    {
-      "model_type": "ctranslator2",
-      "model_path": "nllb-200-distilled-600M-int8",
-      "alt": "education",
-      "src_sentencepiece_model": "flores200_sacrebleu_tokenizer_spm.model",
-      "tgt_sentencepiece_model": "flores200_sacrebleu_tokenizer_spm.model",
-      "multilingual": true,
-      "load": true,
-      "sentence_split": "nltk",
-      "supported_pairs": ["en-rw", "rw-en"],
-      "pipeline": {
-        "lowercase": true,
-        "tokenize": false,
-        "sentencepiece": true,
-        "translate": true,
-        "recase": true
-      },
-      "lang_code_map": {"en": "eng_Latn", "tr": "tur_Latn", 
-                        "fr": "fra_Latn", "rw": "kin_Latn"}
-    },
-    {
-      "model_type": "ctranslator2",
-      "model_path": "nllb-200-distilled-600M-int8",
-      "alt": "tourism",
-      "src_sentencepiece_model": "flores200_sacrebleu_tokenizer_spm.model",
-      "tgt_sentencepiece_model": "flores200_sacrebleu_tokenizer_spm.model",
-      "multilingual": true,
-      "load": true,
-      "sentence_split": "nltk",
-      "supported_pairs": ["en-rw", "rw-en"],
-      "pipeline": {
-        "lowercase": true,
-        "tokenize": false,
-        "sentencepiece": true,
-        "translate": true,
-        "recase": true
-      },
-      "lang_code_map": {"en": "eng_Latn", "tr": "tur_Latn", 
-                        "fr": "fra_Latn", "rw": "kin_Latn"}
-    },
-    {
-      "src": "en",
-      "tgt": "uk",
-      "model_type": "opus",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "translate": true,
-        "recase": true
-      }
-    },
-    {
-      "src": "uk",
-      "tgt": "en",
-      "model_type": "opus",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "translate": true,
-        "recase": true
-      }
-    },
-    {
-      "src": "fr",
-      "tgt": "en",
-      "model_type": "opus",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "translate": true,
-        "recase": true
-      }
-    },
-    {
-      "src": "en",
-      "tgt": "fr",
-      "model_type": "opus",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "translate": true,
-        "recase": true
-      }
-    },
-    {
-      "src": "ha",
-      "tgt": "en",
-      "model_type": "opus",
-      "model_path": "opus-mt-ha-en",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "translate": true,
-        "recase": true
-      }
-    },
-    {
-      "src": "en",
-      "tgt": "ha",
-      "model_type": "opus",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "translate": true,
-        "recase": true
-      }
-    },
-    {
-      "src": "en",
-      "tgt": "de",
-      "model_type": "ctranslator2",
-      "model_path": "ende",
-      "bpe_file": "bpecodes",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "tokenize": true,
-        "bpe": true,
-        "translate": true,
-        "recase": true
-      }
-    },
-    {
-      "src": "fr",
-      "tgt": "sw_cd",
-      "model_type": "ctranslator2",
-      "model_path": "frsw",
-      "bpe_file": "BPE-mtedmix-6000.codes",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "tokenize": true,
-        "bpe": true,
-        "translate": true,
-        "recase": true
-      }
-    },
-    {
-      "src": "sw_cd",
-      "tgt": "fr",
-      "model_type": "ctranslator2",
-      "model_path": "swfr",
-      "bpe_file": "BPE-monomix-6000.codes",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "tokenize": true,
-        "bpe": true,
-        "translate": true,
-        "recase": true
-      }
-    },
-    {
-      "src": "ti",
-      "tgt": "en",
-      "model_type": "ctranslator2",
-      "model_path": "tien",
-      "bpe_file": "BPE-bigmix3a-6000.codes",
-      "load": false,
-      "sentence_split": [
-        "፧",
-        "።",
-        "፨",
-        "?",
-        "!",
-        ":",
-        "“",
-        "”",
-        "\"",
-        "—",
-        "-"
+      "supported_pairs": [
+        "en-es",
+        "en-de",
+        "en-fr",
+        "en-it",
+        "en-pt"
       ],
       "pipeline": {
-        "lowercase": true,
-        "tokenize": true,
-        "bpe": true,
-        "translate": true,
-        "recase": true
-      }
-    },
-    {
-      "src": "en",
-      "tgt": "ti",
-      "model_type": "ctranslator2",
-      "model_path": "enti_adapt",
-      "bpe_file": "codes_file6000_en",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "tokenize": true,
-        "bpe": true,
-        "translate": true,
-        "recase": false
-      }
-    },
-    {
-      "src": "apc",
-      "tgt": "en",
-      "model_type": "ctranslator2",
-      "model_path": "levar-en",
-      "bpe_file": "levarmix.train.mtok.low.bpe-5000.codes",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "tokenize": true,
-        "bpe": true,
-        "translate": true,
-        "recase": true
-      }
-    },
-    {
-      "src": "en",
-      "tgt": "ha", 
-      "model_type": "ctranslator2",
-      "model_path": "enha",
-      "src_sentencepiece_model": "en.model",
-      "tgt_sentencepiece_model": "ha.model",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "tokenize": false,
-        "sentencepiece": true,
-        "translate": true,
-        "recase": true
-      }
-    },
-    {
-      "src": "ha",
-      "tgt": "en",
-      "model_type": "ctranslator2",
-      "model_path": "haen",
-      "src_sentencepiece_model": "en.model",
-      "tgt_sentencepiece_model": "ha.model",
-      "load": false,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "tokenize": false,
-        "sentencepiece": true,
-        "translate": true,
-        "recase": true
+        "translate": true
       }
     }
   ]
