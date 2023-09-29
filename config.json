@@ -13,7 +13,7 @@
       "model_type": "nllb",
       "checkpoint_id": "facebook/nllb-200-3.3B",
       "multilingual": true,
-      "load": true,
+      "load": false,
       "sentence_split": "nltk",
       "supported_pairs": [
         "en-fr",
@@ -60,6 +60,19 @@
       ],
       "pipeline": {
         "translate": true
+      }
+    },
+    {
+      "src": "en",
+      "tgt": "pt",
+
+      "model_type": "opus-big",
+      "load": true,
+      "sentence_split": "nltk",
+      "pipeline": {
+        "lowercase": true,
+        "translate": true,
+        "recase": true
       }
     }
   ]
