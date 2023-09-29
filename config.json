@@ -11,7 +11,7 @@
   "models": [
     {
       "model_type": "nllb",
-      "checkpoint_id": "facebook/nllb-200-distilled-1.3B",
+      "checkpoint_id": "facebook/nllb-200-3.3B",
       "multilingual": true,
       "load": true,
       "sentence_split": "nltk",
