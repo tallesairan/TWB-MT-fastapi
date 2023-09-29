@@ -10,6 +10,26 @@
   },
   "models": [
     {
+      "model_type": "ctranslator2",
+      "model_path": "nllb-200-distilled-600M-int8",
+      "alt": "education",
+      "src_sentencepiece_model": "flores200_sacrebleu_tokenizer_spm.model",
+      "tgt_sentencepiece_model": "flores200_sacrebleu_tokenizer_spm.model",
+      "multilingual": true,
+      "load": true,
+      "sentence_split": "nltk",
+      "supported_pairs": ["en-pt", "pt-en"],
+      "pipeline": {
+        "lowercase": true,
+        "tokenize": false,
+        "sentencepiece": true,
+        "translate": true,
+        "recase": true
+      },
+      "lang_code_map": {"en": "eng_Latn", "tr": "tur_Latn", 
+                        "fr": "fra_Latn", "rw": "kin_Latn"}
+    },
+    {
       "model_type": "nllb",
       "checkpoint_id": "facebook/nllb-200-3.3B",
       "multilingual": true,
@@ -60,19 +80,6 @@
       ],
       "pipeline": {
         "translate": true
-      }
-    },
-    {
-      "src": "en",
-      "tgt": "pt",
-
-      "model_type": "opus-big",
-      "load": true,
-      "sentence_split": "nltk",
-      "pipeline": {
-        "lowercase": true,
-        "translate": true,
-        "recase": true
       }
     }
   ]
