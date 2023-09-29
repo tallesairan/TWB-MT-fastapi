@@ -12,7 +12,6 @@
     {
       "model_type": "ctranslator2",
       "model_path": "nllb-200-distilled-600M-int8",
-      "alt": "education",
       "src_sentencepiece_model": "flores200_sacrebleu_tokenizer_spm.model",
       "tgt_sentencepiece_model": "flores200_sacrebleu_tokenizer_spm.model",
       "multilingual": true,
