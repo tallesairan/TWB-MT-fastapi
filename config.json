@@ -6,20 +6,71 @@
     "pt": "pt",
     "tr": "Turkish",
     "es": "es",
-    "it": "iT"
+    "it": "it"
   },
   "models": [
     {
-      "model_type": "nllb",
-      "checkpoint_id": "facebook/nllb-200-distilled-600M",
-      "multilingual": true,
+      "src": "fr",
+      "tgt": "en",
+      "model_type": "opus",
+      "load": false,
+      "sentence_split": "nltk",
+      "pipeline": {
+        "lowercase": true,
+        "translate": true,
+        "recase": true
+      }
+    },
+    {
+      "src": "en",
+      "tgt": "fr",
+      "model_type": "opus",
+      "load": false,
+      "sentence_split": "nltk",
+      "pipeline": {
+        "lowercase": true,
+        "translate": true,
+        "recase": true
+      }
+    },
+    {
+      "src": "en",
+      "tgt": "de",
+      "model_type": "ctranslator2",
+      "model_path": "ende",
+      "bpe_file": "bpecodes",
+      "load": false,
+      "sentence_split": "nltk",
+      "pipeline": {
+        "lowercase": true,
+        "tokenize": true,
+        "bpe": true,
+        "translate": true,
+        "recase": true
+      }
+    },
+
+    {
+      "src": "en",
+      "tgt": "es",
+      "model_type": "opus-big",
       "load": true,
+      "sentence_split": "nltk",
+      "pipeline": {
+        "translate": true
+      }
+    },
+    {
+      "model_type": "nllb",
+      "checkpoint_id": "facebook/nllb-200-3.3B",
+      "multilingual": true,
+      "load": false,
       "sentence_split": "nltk",
       "supported_pairs": [
         "en-fr",
         "en-tr",
         "en-de",
-        "en-es",
+ 
         "en-pt",
         "en-it",
 
@@ -28,7 +79,7 @@
         "pt-en",
         "pt-es",
         "pt-fr",
-        "es-en",
+  
         "es-pt",
         "fr-en"
       ],
@@ -52,7 +103,7 @@
       "load": false,
       "sentence_split": "nltk",
       "supported_pairs": [
-        "en-es",
+ 
         "en-de",
         "en-fr",
         "en-it",

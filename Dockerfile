@@ -15,7 +15,7 @@ RUN pip3 install --upgrade pip setuptools && \
     pip3 install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117
 
 COPY ./requirements.txt /app/requirements.txt
-RUN pip install -r /app/requirements.txt \
+RUN pip install -r /app/requirements.txt --extra-index-url https://download.pytorch.org/whl/cu113 \
     && rm -rf /root/.cache/pip
 
 #Custom translator requirements
